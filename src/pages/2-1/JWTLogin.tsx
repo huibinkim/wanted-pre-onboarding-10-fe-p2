@@ -9,7 +9,18 @@ const JWTLogin = () => {
     event.preventDefault();
 
     const formData = new FormData(event.currentTarget)
+    const loginResult = await loginWithToken({
+      username: formData.get('username') as string,
+      password: formData.get('password') as string
+    })
 
+    if (loginResult.result === 'fail') return
+
+    const userInfo = await getCurrentUserInfoWithToken(loginResult.access_token)
+
+    if (userInfo === null) return
+
+    setUserInfo(userInfo)
     const loginPayload = {
       username: formData.get('username') as string,
       password: formData.get('password') as string
