@@ -18,7 +18,7 @@ const JWTLogin = () => {
 
     const userInfo = await getCurrentUserInfoWithToken(loginResult.access_token)
 
-    if (userInfo === null) return
+    if (userInfo === null) return 
 
     setUserInfo(userInfo)
     const loginPayload = {

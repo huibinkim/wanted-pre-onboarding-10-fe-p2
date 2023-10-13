@@ -21,12 +21,11 @@ export interface LoginRequest {
 /*********
  *  실습 2-1
  * */
-
-export const loginWithToken = async (args: LoginRequest): Promise<LoginResultWithToken> => {
-  // TODO(2-1): 로그인 API 호출 및 토큰 반환하기
+// TODO(2-1): 로그인 API 호출 및 토큰 반환하기
   // POST, `${ BASE_URL }/auth/login`을 호출하세요.
   // API Spec은 강의 자료를 참고하세요.
   // access_token 발급에 성공한 경우에는 { result: 'success', access_token: string } 형태의 값을 반환하세요.
+export const loginWithToken = async (args: LoginRequest): Promise<LoginResultWithToken> => {
   const loginRes = await fetch(`${ BASE_URL }/auth/login`, {
     method: 'POST',
     headers: {
